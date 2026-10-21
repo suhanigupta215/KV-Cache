@@ -1,0 +1,21 @@
+{
+  "name": "frozen-reference-v1",
+  "version": "1.0",
+  "events": {
+    "seed": 20260922
+  },
+  "model": {
+    "input_size": 224,
+    "patch_size": 14,
+    "layers": 24,
+    "kv_heads": 16,
+    "head_dim": 128,
+    "page_tokens": 32
+  },
+  "temporal": {
+    "persistence_frames": 4,
+    "low_threshold": 0.2,
+    "high_threshold": 0.35,
+    "stable_frames": 6
+  }
+}
