@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <title>MTR-KV | Memory Residency Control Room</title>
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="MTR-KV dashboard home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MTR-KV <small>Control Room</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="safety-badge"><span aria-hidden="true">●</span> Generation-safe</span>
+        <label class="button button-quiet" for="artifact-input">Load results</label>
+        <input id="artifact-input" type="file" accept="application/json,.json" />
+        <button id="reset-results" class="button button-primary" type="button">Use example</button>
+      </div>
+    </header>
+
+    <main id="overview">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Video intelligence × memory control</p>
+          <h1 id="hero-title">Make KV cache residency visible.</h1>
+          <p class="hero-copy">MTR-KV uses early codec motion evidence to place visual KV-cache pages in memory tiers, then uses transformer semantics to correct risky low-motion assumptions.</p>
+        </div>
+        <div class="hero-status">
+          <span class="status-label">Current study</span>
+          <strong id="scenario-name">T03 semantic rescue</strong>
+          <span id="scenario-meta">Reference simulator artifact</span>
+        </div>
+      </section>
+
+      <p id="load-status" class="load-status" aria-live="polite">Showing the built-in presentation example.</p>
+
+      <section id="video-picker" class="video-picker panel" aria-labelledby="video-picker-title" hidden>
+        <h2 id="video-picker-title">Analyze your own video</h2>
+        <p>Choose a video from your computer or gallery, then select Analyze video. It stays on this dashboard server and is removed when the server closes.</p>
+        <div class="video-picker-controls">
+          <label for="video-input">Video file</label>
+          <input id="video-input" type="file" accept="video/*,.mp4,.mov,.mkv,.avi,.webm,.m4v,.mpeg,.mpg,.ts,.mts,.m2ts,.3gp" />
+          <button id="video-analyze" class="button button-primary" type="button" disabled>Analyze video</button>
+          <button id="video-cancel" class="button" type="button" hidden>Cancel upload</button>
+        </div>
+        <p id="video-selection" class="load-status" role="status">No video selected. Maximum size: 512 MB.</p>
+        <p id="video-mode" class="live-note"></p>
+        <p class="live-note">H.264 MP4 works best for motion vectors. Other decodable videos may use conservative fallback when motion metadata is unavailable.</p>
+      </section>
+
+      <section id="live-section" class="live-section" aria-labelledby="live-title" hidden>
+        <div class="section-heading">
+          <div><p class="eyebrow">Measured video run</p><h2 id="live-title">Live controller trace</h2></div>
+          <div class="live-controls">
+            <button id="live-stop" class="button" type="button">Stop</button>
+            <button id="live-download" class="button" type="button" disabled>Save trace</button>
+            <button id="live-restart" class="button button-primary" type="button">Restart run</button>
+          </div>
+        </div>
+        <p id="live-status" class="load-status" role="status">Connecting to local decoder…</p>
+        <div class="live-visuals">
+          <figure class="panel source-panel">
+            <figcaption><strong>Decoded source frame</strong><span id="live-source-time">Waiting for input</span></figcaption>
+            <img id="live-preview" alt="Current decoded video frame, synchronized with the controller decisions" hidden />
+            <p id="live-preview-empty">The first frame appears after the decoder and optional model are ready.</p>
+          </figure>
+          <div class="panel">
+            <p class="eyebrow">Committed memory mapping</p>
+            <h3>Visual KV pages</h3>
+            <p class="tier-legend"><span class="tier-t0">T0 · hot</span><span class="tier-t1">T1 · warm</span><span class="tier-t2">T2 · cold</span></p>
+            <div id="live-pages" class="page-grid" aria-label="Current tier for each logical KV page"></div>
+            <p id="live-decision" class="live-note">Waiting for the first controller decision.</p>
+            <p class="live-note">Each tile is a logical token page, in page-ID order. Hover or focus for its motion activity and temporal state.</p>
+          </div>
+        </div>
+        <div id="live-metrics" class="metric-grid" aria-live="polite"></div>
+        <section id="video-results" class="video-results" aria-labelledby="video-results-title" hidden>
+          <h3 id="video-results-title">Video results</h3>
+          <p id="video-results-meta" class="live-note"></p>
+          <div id="video-result-metrics" class="metric-grid"></div>
+          <p class="live-note">Classifier agreement compares predictions with standard ViT. It does not measure labeled accuracy. Tensor payload excludes validation inputs and other application memory.</p>
+        </section>
+        <div class="table-wrap live-table">
+          <table>
+            <thead><tr><th>Frame</th><th>Motion vectors</th><th>Fallback</th><th>Tensor payload</th><th>KV pages reused</th><th>Model time</th><th>Quality check</th></tr></thead>
+            <tbody id="live-frame-body"></tbody>
+          </table>
+        </div>
+        <p class="live-note">Numbers are observed for this input and device. Processing time excludes decoder time; classifier agreement is not VLM task quality.</p>
+      </section>
+
+      <section class="pipeline-section" aria-labelledby="pipeline-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">The system, in six steps</p><h2 id="pipeline-title">From video signal to safe memory residency</h2></div>
+          <p>Early evidence proposes; semantic evidence verifies.</p>
+        </div>
+        <ol class="pipeline">
+          <li><span>01</span><strong>Video metadata</strong><small>Motion, residuals, confidence</small></li>
+          <li><span>02</span><strong>Temporal state</strong><small>Stable, active, or transitioning</small></li>
+          <li><span>03</span><strong>MTRE mapping</strong><small>Codec blocks become token pages</small></li>
+          <li><span>04</span><strong>MKAD descriptor</strong><small>Generation-tagged tier intent</small></li>
+          <li><span>05</span><strong>KMC commit</strong><small>Reserve → prepare → commit → ready</small></li>
+          <li><span>06</span><strong>Semantic rescue</strong><small>Promote important quiet content</small></li>
+        </ol>
+      </section>
+
+      <section id="simulation-section" class="workspace" aria-labelledby="metrics-title">
+        <div class="section-heading workspace-heading">
+          <div><p class="eyebrow">Simulation output</p><h2 id="metrics-title">Compare residency strategies</h2></div>
+          <label class="mode-picker">View mode
+            <select id="mode-select" aria-label="Simulation result mode"></select>
+          </label>
+        </div>
+        <div id="metric-grid" class="metric-grid" aria-live="polite"></div>
+        <div class="analysis-grid">
+          <section class="panel chart-panel" aria-labelledby="residency-title">
+            <div class="panel-heading"><div><p class="eyebrow">Residency footprint</p><h3 id="residency-title">Pages held in memory</h3></div><span class="panel-note">Lower T0 indicates less fast-memory pressure</span></div>
+            <div id="residency-chart" class="residency-chart" role="img" aria-label="KV page residency comparison"></div>
+          </section>
+          <aside id="frame-explanation" class="panel explanation-panel" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section id="simulation-timeline" class="timeline-section" aria-labelledby="timeline-title">
+        <div class="section-heading"><div><p class="eyebrow">Frame trace</p><h2 id="timeline-title">What happened over time</h2></div><p>Select a frame for an explanation.</p></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Frame</th><th>Generation</th><th>Pages avoided</th><th>Tiers T0 / T1 / T2</th><th>Event</th></tr></thead>
+            <tbody id="frame-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>Simulator comparisons and measured local video runs are labeled separately. No GPU-controller or VLM speedup claim.</footer>
+    <script src="app.js?v=3"></script>
+  </body>
+</html>
