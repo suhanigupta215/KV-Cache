@@ -1,0 +1,20 @@
+{
+  "prepared_local_date": "2026-10-21",
+  "source_video_sha256": "5f51727be4c68e07b409f4f56645b84d97a004369ec13fab61d07c359bb36357",
+  "runtime": {
+    "python": "3.14.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu_count": 8,
+    "pyav": "19.0.1",
+    "torch": "2.14.1",
+    "timm": "1.0.30",
+    "cuda_available": false,
+    "mps_available": false
+  },
+  "git": {
+    "head": "4700fc5f46f638df4b4d8c7fa325064666a986b2",
+    "dirty": true
+  },
+  "user_reported_disclosure_status": "No known public posting, presentation, submission or patent filing, reported in chat on 21 October 2026; not independently audited.",
+  "test_report": "128 passed"
+}

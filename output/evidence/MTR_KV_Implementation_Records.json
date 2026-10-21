@@ -1,0 +1,2182 @@
+{
+  "source": "results/optimization-20261021/full-demo-serial.jsonl",
+  "sha256": "f90993ed37210edb8f556afd206ceb1c6bc6d82bc32e28bb20208299b6c76870",
+  "records": [
+    {
+      "type": "frame_result",
+      "generation": 1,
+      "status": "READY",
+      "metadata_fallback": true,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 1,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 1.0,
+          "target_tier": "T0",
+          "operation": "ALLOCATE",
+          "confidence": 0.0,
+          "frame_index": 1,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 1
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 1,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 1,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 7,
+        "bytes_by_tier": {
+          "T0": 172032,
+          "T1": 0,
+          "T2": 0,
+          "T3": 0
+        },
+        "physical_bytes": 172032,
+        "allocator": {
+          "reservations": 7,
+          "failed_reservations": 0,
+          "releases": 0,
+          "fragmentation_peak": 0.2857142857142857
+        }
+      },
+      "source_pts": 0,
+      "source_seconds": 0.0,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.0021704999962821603,
+      "motion_vectors": 0,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 1,
+        "status": "APPLIED",
+        "actions": [],
+        "apply_statuses": [],
+        "memory": {
+          "resident": 7,
+          "hot": 7,
+          "bytes_by_tier": {
+            "T0": 172032,
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "physical_bytes": 172032,
+          "allocator": {
+            "reservations": 7,
+            "failed_reservations": 0,
+            "releases": 0,
+            "fragmentation_peak": 0.2857142857142857
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.009254375007003546,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "no_valid_history": 7
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.008723791979718953,
+        "same_top1": true,
+        "mean_abs_logit_error": 5.5591681302757934e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 150528,
+        "bytes_written": 150528,
+        "bytes_read": 150528,
+        "write_seconds": 0.00010741600999608636,
+        "read_seconds": 7.872964488342404e-06,
+        "device": "cpu",
+        "pages_reused": 0
+      },
+      "frame_processing_seconds": 0.021856833016499877,
+      "end_to_end_frame_seconds": 0.024027333012782037,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 3,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 3,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 3,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 3
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 3,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 3,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 3,
+        "bytes_by_tier": {
+          "T0": 73728,
+          "T1": 0,
+          "T2": 24576,
+          "T3": 0
+        },
+        "physical_bytes": 98304,
+        "allocator": {
+          "reservations": 24,
+          "failed_reservations": 0,
+          "releases": 17,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 2048,
+      "source_seconds": 0.16666666666666666,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.00012841698480769992,
+      "motion_vectors": 920,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 3,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9999794363975525,
+            "conflict": 0.9999794363975525,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.8890834450721741,
+            "conflict": 0.8890834450721741,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 3,
+          "bytes_by_tier": {
+            "T0": 73728,
+            "T1": 0,
+            "T2": 24576,
+            "T3": 0
+          },
+          "physical_bytes": 98304,
+          "allocator": {
+            "reservations": 24,
+            "failed_reservations": 0,
+            "releases": 17,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.010495750000700355,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "codec_or_temporal_invalidation": 7
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.007704250019742176,
+        "same_top1": true,
+        "mean_abs_logit_error": 5.5591681302757934e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 143186,
+        "bytes_written": 492993,
+        "bytes_read": 489520,
+        "write_seconds": 0.0023414569441229105,
+        "read_seconds": 0.0005615810223389417,
+        "device": "cpu",
+        "pages_reused": 0
+      },
+      "frame_processing_seconds": 0.026849750021938235,
+      "end_to_end_frame_seconds": 0.026978167006745934,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T2",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 8,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 8,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 8,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 23
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 8,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 23,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 3,
+        "bytes_by_tier": {
+          "T0": 73728,
+          "T1": 0,
+          "T2": 24576,
+          "T3": 0
+        },
+        "physical_bytes": 98304,
+        "allocator": {
+          "reservations": 74,
+          "failed_reservations": 0,
+          "releases": 67,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 7168,
+      "source_seconds": 0.5833333333333334,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.0001111250021494925,
+      "motion_vectors": 920,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 8,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9999794363975525,
+            "conflict": 0.9999794363975525,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.8890834450721741,
+            "conflict": 0.8890834450721741,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 3,
+          "bytes_by_tier": {
+            "T0": 73728,
+            "T1": 0,
+            "T2": 24576,
+            "T3": 0
+          },
+          "physical_bytes": 98304,
+          "allocator": {
+            "reservations": 74,
+            "failed_reservations": 0,
+            "releases": 67,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.010748959000920877,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 7,
+        "pages_recomputed": 0,
+        "tokens_kv_reused": 196,
+        "tokens_kv_projected": 1,
+        "validation_input_bytes": 150528,
+        "reused_pages": [
+          {
+            "page_id": 0,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 1,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 2,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 3,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 4,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 5,
+            "source_generation": 7,
+            "origin_generation": 7
+          },
+          {
+            "page_id": 6,
+            "source_generation": 7,
+            "origin_generation": 7
+          }
+        ],
+        "recompute_reasons": {}
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.007764167006826028,
+        "same_top1": true,
+        "mean_abs_logit_error": 5.555947791435756e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 143186,
+        "bytes_written": 1361716,
+        "bytes_read": 1484064,
+        "write_seconds": 0.011433663952630013,
+        "read_seconds": 0.0032033310853876173,
+        "device": "cpu",
+        "pages_reused": 7
+      },
+      "frame_processing_seconds": 0.02714508300414309,
+      "end_to_end_frame_seconds": 0.02725620800629258,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 43,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 43,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 43,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 163
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 43,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 163,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 3,
+        "bytes_by_tier": {
+          "T0": 73728,
+          "T1": 0,
+          "T2": 24576,
+          "T3": 0
+        },
+        "physical_bytes": 98304,
+        "allocator": {
+          "reservations": 424,
+          "failed_reservations": 0,
+          "releases": 417,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 43008,
+      "source_seconds": 3.5,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.0001009170082397759,
+      "motion_vectors": 920,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 43,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9999794363975525,
+            "conflict": 0.9999794363975525,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.8890834450721741,
+            "conflict": 0.8890834450721741,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 3,
+          "bytes_by_tier": {
+            "T0": 73728,
+            "T1": 0,
+            "T2": 24576,
+            "T3": 0
+          },
+          "physical_bytes": 98304,
+          "allocator": {
+            "reservations": 424,
+            "failed_reservations": 0,
+            "releases": 417,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.012940417014760897,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "window_expired": 7
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.009317082993220538,
+        "same_top1": true,
+        "mean_abs_logit_error": 5.5591681302757934e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 143186,
+        "bytes_written": 5259689,
+        "bytes_read": 9699248,
+        "write_seconds": 0.044376572186592966,
+        "read_seconds": 0.02211852403706871,
+        "device": "cpu",
+        "pages_reused": 224
+      },
+      "frame_processing_seconds": 0.030769000004511327,
+      "end_to_end_frame_seconds": 0.030869917012751102,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 48,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 48,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 48,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 183
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 48,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 183,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 3,
+        "bytes_by_tier": {
+          "T0": 73728,
+          "T1": 0,
+          "T2": 24576,
+          "T3": 0
+        },
+        "physical_bytes": 98304,
+        "allocator": {
+          "reservations": 474,
+          "failed_reservations": 0,
+          "releases": 467,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 48128,
+      "source_seconds": 3.9166666666666665,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.00010741600999608636,
+      "motion_vectors": 920,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 48,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9999794363975525,
+            "conflict": 0.9999794363975525,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.8890834450721741,
+            "conflict": 0.8890834450721741,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 3,
+          "bytes_by_tier": {
+            "T0": 73728,
+            "T1": 0,
+            "T2": 24576,
+            "T3": 0
+          },
+          "physical_bytes": 98304,
+          "allocator": {
+            "reservations": 474,
+            "failed_reservations": 0,
+            "releases": 467,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.00875870801974088,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 7,
+        "pages_recomputed": 0,
+        "tokens_kv_reused": 196,
+        "tokens_kv_projected": 1,
+        "validation_input_bytes": 150528,
+        "reused_pages": [
+          {
+            "page_id": 0,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 1,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 2,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 3,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 4,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 5,
+            "source_generation": 47,
+            "origin_generation": 43
+          },
+          {
+            "page_id": 6,
+            "source_generation": 47,
+            "origin_generation": 43
+          }
+        ],
+        "recompute_reasons": {}
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.008133875002386048,
+        "same_top1": true,
+        "mean_abs_logit_error": 5.555947791435756e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 143186,
+        "bytes_written": 5764564,
+        "bytes_read": 10902688,
+        "write_seconds": 0.04814652923960239,
+        "read_seconds": 0.024828149907989427,
+        "device": "cpu",
+        "pages_reused": 259
+      },
+      "frame_processing_seconds": 0.02548433397896588,
+      "end_to_end_frame_seconds": 0.025591749988961965,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 55,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 0,
+          "page_count": 2,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 55,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 211
+        },
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 2,
+          "page_count": 2,
+          "activity": 0.5,
+          "target_tier": "T0",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 55,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 212
+        },
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 4,
+          "page_count": 3,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 55,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 213
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED",
+        "APPLIED",
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 0,
+          "page_count": 2,
+          "fence_id": 211,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 2,
+          "page_count": 2,
+          "fence_id": 212,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 55,
+          "page_start": 4,
+          "page_count": 3,
+          "fence_id": 213,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 5,
+        "bytes_by_tier": {
+          "T0": 122880,
+          "T1": 0,
+          "T2": 12288,
+          "T3": 0
+        },
+        "physical_bytes": 135168,
+        "allocator": {
+          "reservations": 544,
+          "failed_reservations": 0,
+          "releases": 537,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 55296,
+      "source_seconds": 4.5,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.00028375000692903996,
+      "motion_vectors": 902,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 55,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9773611426353455,
+            "conflict": 0.9773611426353455,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9958183765411377,
+            "conflict": 0.9958183765411377,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 5,
+          "bytes_by_tier": {
+            "T0": 122880,
+            "T1": 0,
+            "T2": 12288,
+            "T3": 0
+          },
+          "physical_bytes": 135168,
+          "allocator": {
+            "reservations": 544,
+            "failed_reservations": 0,
+            "releases": 537,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.009472916019149125,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "model_input_changed": 5,
+          "codec_or_temporal_invalidation": 2
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.0077046249934937805,
+        "same_top1": true,
+        "mean_abs_logit_error": 4.562786125461571e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 146895,
+        "bytes_written": 6656925,
+        "bytes_read": 12486571,
+        "write_seconds": 0.05548786211875267,
+        "read_seconds": 0.028467980067944154,
+        "device": "cpu",
+        "pages_reused": 294
+      },
+      "frame_processing_seconds": 0.025654249999206513,
+      "end_to_end_frame_seconds": 0.025938000006135553,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 0.5,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 0.5,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 109,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 0,
+          "page_count": 2,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 532
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 2,
+          "page_count": 1,
+          "activity": 0.5,
+          "target_tier": "T0",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 533
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 3,
+          "page_count": 1,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 534
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 4,
+          "page_count": 1,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 535
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 5,
+          "page_count": 1,
+          "activity": 0.47265625,
+          "target_tier": "T0",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 536
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 6,
+          "page_count": 1,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 109,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 537
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED",
+        "APPLIED",
+        "APPLIED",
+        "APPLIED",
+        "APPLIED",
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 0,
+          "page_count": 2,
+          "fence_id": 532,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 2,
+          "page_count": 1,
+          "fence_id": 533,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 3,
+          "page_count": 1,
+          "fence_id": 534,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 4,
+          "page_count": 1,
+          "fence_id": 535,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 5,
+          "page_count": 1,
+          "fence_id": 536,
+          "status": "READY"
+        },
+        {
+          "stream_id": 0,
+          "generation": 109,
+          "page_start": 6,
+          "page_count": 1,
+          "fence_id": 537,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 4,
+        "bytes_by_tier": {
+          "T0": 98304,
+          "T1": 0,
+          "T2": 18432,
+          "T3": 0
+        },
+        "physical_bytes": 116736,
+        "allocator": {
+          "reservations": 1077,
+          "failed_reservations": 0,
+          "releases": 1070,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 110592,
+      "source_seconds": 9.0,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.0003676670021377504,
+      "motion_vectors": 897,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 109,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 6,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.9741515517234802,
+            "conflict": 0.9741515517234802,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 4,
+          "bytes_by_tier": {
+            "T0": 98304,
+            "T1": 0,
+            "T2": 18432,
+            "T3": 0
+          },
+          "physical_bytes": 116736,
+          "allocator": {
+            "reservations": 1077,
+            "failed_reservations": 0,
+            "releases": 1070,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.016359957982786,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "model_input_changed": 4,
+          "codec_or_temporal_invalidation": 3
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.010814167006174102,
+        "same_top1": true,
+        "mean_abs_logit_error": 7.398427987936884e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 145049,
+        "bytes_written": 16168734,
+        "bytes_read": 21816512,
+        "write_seconds": 0.1454392652376555,
+        "read_seconds": 0.05246725305914879,
+        "device": "cpu",
+        "pages_reused": 294
+      },
+      "frame_processing_seconds": 0.03848595899762586,
+      "end_to_end_frame_seconds": 0.03885362599976361,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 0.5,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STABLE",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 0.47265625,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 163,
+      "status": "READY",
+      "metadata_fallback": true,
+      "transition_predicted": true,
+      "reuse_eligible_pages": [],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 163,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 1.0,
+          "target_tier": "T0",
+          "operation": "ALLOCATE",
+          "confidence": 0.0,
+          "frame_index": 163,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 766
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 163,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 766,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 7,
+        "bytes_by_tier": {
+          "T0": 172032,
+          "T1": 0,
+          "T2": 0,
+          "T3": 0
+        },
+        "physical_bytes": 172032,
+        "allocator": {
+          "reservations": 1608,
+          "failed_reservations": 0,
+          "releases": 1601,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 165888,
+      "source_seconds": 13.5,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.0026052920147776604,
+      "motion_vectors": 0,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 163,
+        "status": "APPLIED",
+        "actions": [],
+        "apply_statuses": [],
+        "memory": {
+          "resident": 7,
+          "hot": 7,
+          "bytes_by_tier": {
+            "T0": 172032,
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "physical_bytes": 172032,
+          "allocator": {
+            "reservations": 1608,
+            "failed_reservations": 0,
+            "releases": 1601,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.00902670802315697,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 0,
+        "pages_recomputed": 7,
+        "tokens_kv_reused": 0,
+        "tokens_kv_projected": 197,
+        "validation_input_bytes": 150528,
+        "reused_pages": [],
+        "recompute_reasons": {
+          "codec_or_temporal_invalidation": 7
+        }
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.010944665991701186,
+        "same_top1": true,
+        "mean_abs_logit_error": 6.845562893431634e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 150528,
+        "bytes_written": 22833923,
+        "bytes_read": 33884855,
+        "write_seconds": 0.20680504181655124,
+        "read_seconds": 0.08292500066454522,
+        "device": "cpu",
+        "pages_reused": 568
+      },
+      "frame_processing_seconds": 0.022852916998090222,
+      "end_to_end_frame_seconds": 0.025458209012867883,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T0",
+          "state": "ACTIVE",
+          "activity": 1.0,
+          "ready": true
+        }
+      ]
+    },
+    {
+      "type": "frame_result",
+      "generation": 216,
+      "status": "READY",
+      "metadata_fallback": false,
+      "transition_predicted": false,
+      "reuse_eligible_pages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "descriptors": [
+        {
+          "stream_id": 0,
+          "generation": 216,
+          "page_start": 0,
+          "page_count": 7,
+          "activity": 0.0,
+          "target_tier": "T2",
+          "operation": "ALLOCATE",
+          "confidence": 1.0,
+          "frame_index": 216,
+          "valid": true,
+          "prefetch": false,
+          "cause": "codec",
+          "descriptor_id": 921
+        }
+      ],
+      "apply_statuses": [
+        "APPLIED"
+      ],
+      "ready_tokens": [
+        {
+          "stream_id": 0,
+          "generation": 216,
+          "page_start": 0,
+          "page_count": 7,
+          "fence_id": 921,
+          "status": "READY"
+        }
+      ],
+      "memory": {
+        "resident": 7,
+        "hot": 2,
+        "bytes_by_tier": {
+          "T0": 49152,
+          "T1": 0,
+          "T2": 30720,
+          "T3": 0
+        },
+        "physical_bytes": 79872,
+        "allocator": {
+          "reservations": 2083,
+          "failed_reservations": 0,
+          "releases": 2076,
+          "fragmentation_peak": 1.0
+        }
+      },
+      "source_pts": 220160,
+      "source_seconds": 17.916666666666668,
+      "source_codec": "h264",
+      "source_kind": "video",
+      "capture_dropped_frames": 0,
+      "source_size": [
+        640,
+        360
+      ],
+      "source_crop": [
+        157.0909090909091,
+        17.419354838709676,
+        325.8181818181818,
+        325.16129032258067
+      ],
+      "reconciliation_path": "tiled",
+      "decode_seconds": 0.00011049999739043415,
+      "motion_vectors": 920,
+      "inference_path": "stored_kv",
+      "kv_reuse_enabled": true,
+      "semantic_feedback": {
+        "type": "semantic_result",
+        "generation": 216,
+        "status": "APPLIED",
+        "actions": [
+          {
+            "page_id": 0,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 1.0,
+            "conflict": 1.0,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          },
+          {
+            "page_id": 5,
+            "operation": "PROMOTE",
+            "tier": "T0",
+            "activity": 0.0,
+            "semantic": 0.973115861415863,
+            "conflict": 0.973115861415863,
+            "cause": "semantic_rescue",
+            "old_tier": "T2"
+          }
+        ],
+        "apply_statuses": [
+          "APPLIED",
+          "APPLIED"
+        ],
+        "memory": {
+          "resident": 7,
+          "hot": 2,
+          "bytes_by_tier": {
+            "T0": 49152,
+            "T1": 0,
+            "T2": 30720,
+            "T3": 0
+          },
+          "physical_bytes": 79872,
+          "allocator": {
+            "reservations": 2083,
+            "failed_reservations": 0,
+            "releases": 2076,
+            "fragmentation_peak": 1.0
+          }
+        }
+      },
+      "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "model_inference_seconds": 0.008609082986367866,
+      "kv_reuse": {
+        "enabled": true,
+        "window": 8,
+        "pages_reused": 7,
+        "pages_recomputed": 0,
+        "tokens_kv_reused": 196,
+        "tokens_kv_projected": 1,
+        "validation_input_bytes": 150528,
+        "reused_pages": [
+          {
+            "page_id": 0,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 1,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 2,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 3,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 4,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 5,
+            "source_generation": 215,
+            "origin_generation": 214
+          },
+          {
+            "page_id": 6,
+            "source_generation": 215,
+            "origin_generation": 214
+          }
+        ],
+        "recompute_reasons": {}
+      },
+      "kv_consumed_pages": 7,
+      "baseline_comparison": {
+        "baseline_seconds": 0.007675500004552305,
+        "same_top1": true,
+        "mean_abs_logit_error": 6.841650611022487e-05
+      },
+      "tensor_storage": {
+        "payload_bytes": 143288,
+        "bytes_written": 28857335,
+        "bytes_read": 45746079,
+        "write_seconds": 0.25747995256097056,
+        "read_seconds": 0.11079170342418365,
+        "device": "cpu",
+        "pages_reused": 862
+      },
+      "frame_processing_seconds": 0.0251237089978531,
+      "end_to_end_frame_seconds": 0.025234208995243534,
+      "pages": [
+        {
+          "page_id": 0,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 1,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 2,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 3,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 4,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 5,
+          "tier": "T0",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        },
+        {
+          "page_id": 6,
+          "tier": "T2",
+          "state": "STATIC",
+          "activity": 0.0,
+          "ready": true
+        }
+      ]
+    }
+  ]
+}
