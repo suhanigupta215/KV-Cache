@@ -1,0 +1,39 @@
+{
+  "baseline_mean_inference_ms": null,
+  "compared_frames": 0,
+  "final_tensor_bytes_read": null,
+  "final_tensor_bytes_written": null,
+  "frames": 216,
+  "inference_paths": [
+    "codec_only"
+  ],
+  "input": "results/demo-trace.jsonl",
+  "kind": "measured_video_evaluation",
+  "limitations": [
+    "ViT-Tiny is an image classifier, not a vision-language model.",
+    "Only the final attention block consumes tiered K/V; cross-frame reuse is not implemented.",
+    "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+    "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+  ],
+  "mean_abs_logit_error": null,
+  "mean_end_to_end_frame_ms": 48.709087753700764,
+  "mean_kv_consumed_pages": null,
+  "mean_model_inference_ms": null,
+  "mean_motion_vectors_per_frame": 905.5648148148148,
+  "mean_processing_ms_excluding_decode": 48.50226155071545,
+  "metadata_fallback_rate": 0.018518518518518517,
+  "model_frames": 0,
+  "p95_end_to_end_frame_ms": 57.136749994242564,
+  "p95_model_inference_ms": null,
+  "p95_processing_ms_excluding_decode": 56.91625000326894,
+  "peak_actual_tensor_payload_bytes": null,
+  "ready_frames": 216,
+  "semantic_model": null,
+  "source_codec": "h264",
+  "source_size": [
+    640,
+    360
+  ],
+  "tensor_device": null,
+  "top1_agreement_rate": null
+}
