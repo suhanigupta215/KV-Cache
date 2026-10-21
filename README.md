@@ -7,6 +7,29 @@ decoder/controller/model pipeline and shows a completed or partial results summa
 Based on the project snapshot supplied from `Shaurya002800/MTR-KV`.
 See [video picker instructions](docs/VIDEO_PICKER.md) for usage and limits.
 
+## Windows quick start
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-live.txt
+.\.venv\Scripts\python.exe -m mtr_kv demo --semantic-model --kv-inference --kv-reuse --compare-baseline
+```
+
+Open http://127.0.0.1:8765. Under **Analyze your own video**, choose a local
+video and select **Analyze video**. The dashboard displays frame decisions,
+the decoded preview, and a summary when processing completes. First model
+use can download pretrained weights. For the codec/controller demonstration
+without model weights, run `python -m mtr_kv demo` in the environment instead.
+
+## Course submission materials
+
+- [Final project report](output/course-report/MTR_KV_Final_Project_Report.pdf)
+- [Explanatory presentation with speaker notes](output/course-report/MTR_KV_Project_Explanation.pptx)
+
+Team: Suhani Gupta (24BDE0042), Kunwar Shaurya Pratap Singh (24BDE0061),
+and Kanan Tayal (24BDE0040). Artificial Intelligence, BCSE306L.
+Faculty: Professor Jayalakshmi P, Vellore Institute of Technology.
+
 # MTR-KV
 
 Patent-oriented technical review materials are in [docs/patent-review/README.md](docs/patent-review/README.md). They distinguish implemented software from proposed hardware/VLM embodiments and are not a patentability opinion.
