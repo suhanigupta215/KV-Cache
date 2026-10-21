@@ -1,0 +1,36 @@
+{
+  "verified_exact_test_functions": {
+    "test_geometry.py": [
+      "test_model_center_crop_maps_token_bounds_to_actual_source_window",
+      "test_mtre_optimized_matches_oracle"
+    ],
+    "test_memory_generation.py": [
+      "test_stale_descriptor_rejected",
+      "test_ready_implies_committed",
+      "test_exhaustion_preserves_old_mapping_and_ready_state"
+    ],
+    "test_live.py": [
+      "test_live_semantic_feedback_promotes_current_quiet_page"
+    ],
+    "test_tensor_store.py": [
+      "test_tensor_store_roundtrip_real_payloads",
+      "test_tier_sync_does_not_count_spurious_reads"
+    ],
+    "test_kv_reuse.py": [
+      "test_changed_model_input_is_recomputed_despite_zero_codec_motion",
+      "test_window_refreshes_old_origins"
+    ],
+    "test_reference_cases.py": [
+      "test_T08_missing_metadata_fallback"
+    ],
+    "test_dashboard_server.py": [
+      "test_dashboard_streams_synchronized_decoded_preview"
+    ],
+    "test_phone.py": [
+      "test_phone_live_pipe_decodes_vectors_and_cleans_up"
+    ]
+  },
+  "test_report": "results/optimization-20261021/test-results.xml",
+  "runtime_changes_since_test_run": false,
+  "new_work": "Document, capture and natural-video evaluation tooling only"
+}

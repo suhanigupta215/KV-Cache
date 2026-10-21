@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "files": {
+    "output/docx/MTR_KV_Patent_Disclosure_v1_0.docx": "22a89221c86829a91d3a345e610eee3a1f130b18fab9566f3793a79816778ee5",
+    "output/pdf/MTR_KV_Patent_Disclosure_v1_0.pdf": "a5772f9d7ba100543a6fe925aed4761bbf82aba38c314a0effcd79c312eb65b9",
+    "output/evidence/MTR_KV_Frozen_Evidence_v1_0.zip": "c81466de4cb24f0dc726db1a06a2578edda2082a18060571727e7ee26bb342ad"
+  },
+  "archive_verified_files": 115
+}

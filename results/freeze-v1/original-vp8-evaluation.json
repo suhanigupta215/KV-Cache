@@ -1,0 +1,44 @@
+{
+  "baseline_mean_inference_ms": 8.178841179593864,
+  "compared_frames": 356,
+  "final_tensor_bytes_read": 53587968,
+  "final_tensor_bytes_written": 53587968,
+  "frames": 356,
+  "inference_paths": [
+    "stored_kv"
+  ],
+  "input": "/Users/shaurya/MTR-KV/results/freeze-v1/original-vp8.jsonl",
+  "kind": "measured_video_evaluation",
+  "kv_pages_recomputed": 2492,
+  "kv_pages_reused": 0,
+  "kv_reuse_frames": 356,
+  "kv_tokens_reused": 0,
+  "limitations": [
+    "ViT-Tiny is an image classifier, not a vision-language model.",
+    "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+    "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+    "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+  ],
+  "mean_abs_logit_error": 4.4383857084029114e-05,
+  "mean_end_to_end_frame_ms": 31.6055321945283,
+  "mean_kv_consumed_pages": 7,
+  "mean_model_inference_ms": 8.338048777986433,
+  "mean_motion_vectors_per_frame": 0,
+  "mean_processing_ms_excluding_decode": 28.6836866351509,
+  "metadata_fallback_rate": 1,
+  "model_frames": 356,
+  "p95_end_to_end_frame_ms": 36.01966693531722,
+  "p95_model_inference_ms": 9.091125044506043,
+  "p95_processing_ms_excluding_decode": 30.41012503672391,
+  "peak_actual_tensor_payload_bytes": 150528,
+  "peak_reuse_validation_input_bytes": 150528,
+  "ready_frames": 356,
+  "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+  "source_codec": "vp8",
+  "source_size": [
+    1920,
+    1080
+  ],
+  "tensor_device": "cpu",
+  "top1_agreement_rate": 1
+}
