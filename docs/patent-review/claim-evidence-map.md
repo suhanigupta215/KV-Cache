@@ -1,0 +1,26 @@
+# Candidate element-to-evidence map
+
+**For counsel's issue spotting only.** Element IDs are engineering labels, **not patent claims**. “Tested” means repository tests or an executable path, not independent performance proof. The frozen disclosure's potential apparatus includes more elements than the current software embodiment.
+
+| ID | Candidate technical element | Current support | Evidence entry point | Unresolved proof / limitation |
+| --- | --- | --- | --- | --- |
+| E1 | Decoder output supplies motion vectors and frame type before model attention | Implemented and tested with a short encoded-video fixture | `mtr_kv/video.py::run_video`, `tests/test_video.py::test_video_decoder_feeds_online_controller` | PyAV side-data availability varies by codec; residuals are not exported; no hardware decoder interface. |
+| E2 | Source-pixel codec blocks reconciled to visual-token/page geometry | Implemented and tested | `mtr_kv/mtre.py::Mtre.reconcile`, `mtr_kv/simulator.py::build_token_regions`, `tests/test_geometry.py` | Real-model image preprocessing and source crop must remain aligned for each future VLM. |
+| E3 | Temporal state and transition prediction influence early tier intent | Implemented in Python and tested | `mtr_kv/temporal.py`, `mtr_kv/predictor.py`, `tests/test_temporal.py`, `tests/test_reference_cases.py` | No measured real-video false-positive/false-negative rate yet. |
+| E4 | Generation-tagged page descriptor specifies tier and operation | Implemented and tested | `mtr_kv/mkad.py::MkadBuilder`, `mtr_kv/data_objects.py::MKAD`, `tests/test_reference_cases.py` | Descriptor format is a software object, not a register/PCIe/ASIC wire protocol. |
+| E5 | Reserve → shadow prepare → atomic commit → ready; stale rejection | Behavioral model implemented and tested, including races | `mtr_kv/controller.py::Kmc.apply`, `mtr_kv/memory.py`, `tests/test_memory_generation.py`, `tests/test_race.py` | No physical asynchronous FIFO, hardware fence, RTL, or device-level atomicity test. |
+| E6 | Descriptor maps visual K/V to T0/T1/T2 and attention consumes retrieved data | One ViT final block implemented and tested, including optional bounded cross-frame reuse with exact input validation | `mtr_kv/vision_feedback.py::_stored_attention`, `mtr_kv/tensor_store.py::TorchKVStore`, `tests/test_kv_reuse.py`, `tests/test_video.py`, `tests/test_tensor_store.py` | No all-layer VLM K/V, GPU memory-pressure study, or reliable throughput advantage. Earlier blocks still execute; validation feature buffers add overhead. |
+| E7 | Semantic low-codec/high-attention correction returns through KMC | Implemented with proxy attention and tested | `mtr_kv/semantic.py::Srce.evaluate`, `mtr_kv/live.py::LiveController.semantic`, `tests/test_reference_cases.py::test_T03_low_codec_high_semantic_rescue` | Proxy is not ground-truth importance; quality effects and rescue precision unmeasured on real data. |
+| E8 | Missing/invalid metadata enters conservative fallback | Implemented and tested | `mtr_kv/live.py::LiveController.frame`, `tests/test_reference_cases.py::test_T08_missing_metadata_fallback` | Real codec coverage and fallback frequency unmeasured on representative corpus. |
+| E9 | Traceable real-input comparison with measured payload, timing, output agreement | Instrumentation implemented; controlled-video and one natural-scene sample evaluated | `mtr_kv/evidence.py::capture`, `mtr_kv/evaluate.py::summarize`, `tests/test_evidence.py`, `tests/test_evaluate.py` | Actual screenshots, raw traces and one CC0 natural-scene check are included in the version 1.0 evidence. The H264 natural run agrees on 170/171 frames and has zero reuse. No representative corpus, confidence interval, VLM quality score or external replication. |
+| E10 | Hardware/GPU KMC, asynchronous decoder-to-KMC interface, multi-layer VLM and VLM cross-window reuse | Described in frozen architecture only | Frozen master document §§ 27, 41–45, 58, 64–67 | Not implemented. The optional single-block ViT reuse in E6 does not establish this hardware/VLM embodiment. |
+
+## Candidate combination under examination
+
+The narrowest potentially useful *research question* is whether **E1+E2+E3+E4+E5+E6+E7 together** produce a non-obvious technical controller arrangement over the verified prior art. The current code supports a software embodiment of much of that chain, but not the hardware/VLM breadth of the frozen potential independent apparatus. No novelty conclusion follows from this chart.
+
+## Evidence boundaries
+
+- `results/simulation.json` and `results/report.md` are synthetic/model outputs, never substitute them for real video or hardware measurements.
+- The short encoded-video test in `tests/test_video.py` validates plumbing and invariants, not population-level accuracy or speed.
+- Version 1.0 records: `results/freeze-v1/capture-manifest.json` links three unmodified screenshots to exact dashboard traces; `natural-video-provenance.json` identifies the CC0 source and conversion; `derived-h264-evaluation.json` and `original-vp8-evaluation.json` retain both natural-video outcomes. The final archive has a complete SHA-256 manifest. Hashes identify bytes and do not establish patent priority.
