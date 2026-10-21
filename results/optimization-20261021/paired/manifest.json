@@ -1,0 +1,949 @@
+{
+  "kind": "paired_reconciliation_optimization",
+  "input": "/Users/shaurya/MTR-KV/results/demo.mp4",
+  "input_sha256": "5f51727be4c68e07b409f4f56645b84d97a004369ec13fab61d07c359bb36357",
+  "frames_per_run": 60,
+  "warmup_frames": 6,
+  "repeats": 3,
+  "python": "3.14.3 (v3.14.3:323c59a5e34, Feb  3 2026, 11:41:37) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "runs": [
+    {
+      "repeat": 1,
+      "arm": "oracle",
+      "trace": "repeat-1-oracle.jsonl",
+      "sha256": "8e8d9a101b7cc8c12ecaa2400910a1a1d6f68fe01ed7be36cccd626eaeb06e39",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": false
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 11.106373481905191,
+        "p95_model_inference_ms": 27.243041986366734,
+        "mean_processing_ms_excluding_decode": 65.59709879608515,
+        "p95_processing_ms_excluding_decode": 120.4047919891309,
+        "mean_end_to_end_frame_ms": 65.72886424287896,
+        "p95_end_to_end_frame_ms": 120.58529196656309,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 12.310040094975934,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    },
+    {
+      "repeat": 1,
+      "arm": "indexed",
+      "trace": "repeat-1-indexed.jsonl",
+      "sha256": "dbd7fa73ae3628df29bf24344f17c2c526ffa67730353c247cc318b6601823a9",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": true
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 15.433189909176521,
+        "p95_model_inference_ms": 19.69812501920387,
+        "mean_processing_ms_excluding_decode": 37.488445203591795,
+        "p95_processing_ms_excluding_decode": 47.52783299773,
+        "mean_end_to_end_frame_ms": 37.64601988896848,
+        "p95_end_to_end_frame_ms": 47.72029098239727,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 12.085241466626973,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    },
+    {
+      "repeat": 2,
+      "arm": "indexed",
+      "trace": "repeat-2-indexed.jsonl",
+      "sha256": "5d582a477bf2e46ce881bf8acb87395ffb7f5fbbbc3f7c7823529856f2d4d98b",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": true
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 12.687947552573556,
+        "p95_model_inference_ms": 16.9171669986099,
+        "mean_processing_ms_excluding_decode": 35.6795462387338,
+        "p95_processing_ms_excluding_decode": 93.67475000908598,
+        "mean_end_to_end_frame_ms": 35.82911179573448,
+        "p95_end_to_end_frame_ms": 93.81270801532082,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 13.305874984965797,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    },
+    {
+      "repeat": 2,
+      "arm": "oracle",
+      "trace": "repeat-2-oracle.jsonl",
+      "sha256": "19b7011bda35eacb3632ab1f07111a91d986b83381e06336ed810253218075df",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": false
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 9.76330407569616,
+        "p95_model_inference_ms": 11.640792014077306,
+        "mean_processing_ms_excluding_decode": 56.30807870626018,
+        "p95_processing_ms_excluding_decode": 67.83412498771213,
+        "mean_end_to_end_frame_ms": 56.43070141000121,
+        "p95_end_to_end_frame_ms": 67.9577499977313,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 8.420073225688949,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    },
+    {
+      "repeat": 3,
+      "arm": "oracle",
+      "trace": "repeat-3-oracle.jsonl",
+      "sha256": "296c11af82e39da5457f7f20c6ce43b0eebc4356216ab900d68d2d1956bc95e0",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": false
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 9.61349690893527,
+        "p95_model_inference_ms": 11.89537497702986,
+        "mean_processing_ms_excluding_decode": 55.2798179425601,
+        "p95_processing_ms_excluding_decode": 61.646958987694234,
+        "mean_end_to_end_frame_ms": 55.39595068236209,
+        "p95_end_to_end_frame_ms": 61.76966699422337,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 8.11952083528956,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    },
+    {
+      "repeat": 3,
+      "arm": "indexed",
+      "trace": "repeat-3-indexed.jsonl",
+      "sha256": "4a824d309caceb2df81690b72610b1343d09fef258a462df3482fff0b93c2193",
+      "decision_sha256": "fae0fb95056b0df98dd1d1471d8ba2813ee693b9cf991b926b66a369ebed0add",
+      "config": {
+        "version": "1.0",
+        "name": "frozen-reference-v1",
+        "model": {
+          "input_size": 224,
+          "patch_size": 16,
+          "layers": 1,
+          "kv_heads": 3,
+          "head_dim": 64,
+          "bytes_per_element": 2.0,
+          "page_tokens": 32,
+          "crop": [
+            157.0909090909091,
+            17.419354838709676,
+            325.8181818181818,
+            325.16129032258067
+          ],
+          "source_size": [
+            1920,
+            1080
+          ]
+        },
+        "motion": {
+          "activity_weights": [
+            0.5,
+            0.25,
+            0.1,
+            0.15
+          ],
+          "motion_max": 32.0,
+          "residual_max": 255.0,
+          "quantize_activity": false,
+          "quantization_levels": 16,
+          "confidence_threshold": 0.25,
+          "score_mode": "full"
+        },
+        "temporal": {
+          "persistence_frames": 4,
+          "low_threshold": 0.2,
+          "high_threshold": 0.35,
+          "stable_frames": 6,
+          "transition_hold_frames": 3
+        },
+        "scene": {
+          "enabled": true,
+          "threshold": 0.45,
+          "residual_jump": 0.3,
+          "frame_type_change_weight": 0.2,
+          "high_change_fraction": 0.6,
+          "prefetch_margin": 8,
+          "false_positive_budget": 0.15
+        },
+        "mtre": {
+          "hierarchical": true,
+          "hierarchy_min_region": 2,
+          "hierarchy_heterogeneity": 0.15,
+          "conservative_mixed_evidence": true,
+          "spatial_index_tiles": 8,
+          "use_optimized_path": true
+        },
+        "kmc": {
+          "tier_levels": 3,
+          "enable_t3": false,
+          "emergency_pool_pages": 8,
+          "max_queue_depth": 256,
+          "critical_queue_depth": 128,
+          "coalescing_enabled": true,
+          "generation_checks_enabled": true,
+          "enforce_generation_checks": false,
+          "reconstruction_latency": 3.0,
+          "reconstruction_bytes_ratio": 0.25,
+          "allocation_failure_mode": "fallback_t2"
+        },
+        "srce": {
+          "enabled": true,
+          "low_codec": 0.2,
+          "high_semantic": 0.7,
+          "conflict_threshold": 0.4,
+          "aggregation": "max",
+          "demote_persistence": 4,
+          "semantic_normalization": "max_abs",
+          "emergency_pool_only_promotions": true
+        },
+        "fallback": {
+          "missing_metadata_mode": "full_t0",
+          "low_confidence_mode": "unknown_state",
+          "queue_overflow_mode": "conservative_freeze",
+          "state_freeze_on_fault": true
+        },
+        "events": {
+          "decode_delay": 1.0,
+          "mtre_delay": 0.5,
+          "mkad_delay": 0.2,
+          "commit_delay": 0.3,
+          "semantic_delay": 1.5,
+          "correction_delay": 0.2,
+          "scheduler_mode": "normal",
+          "adversarial_delay_jitter": 2.0,
+          "seed": 20260922
+        },
+        "num_streams": 1,
+        "num_frames": 12,
+        "mode": "full",
+        "unsafe_generation_checks": false
+      },
+      "summary": {
+        "kind": "measured_video_evaluation",
+        "frames": 54,
+        "ready_frames": 54,
+        "metadata_fallback_rate": 0,
+        "mean_motion_vectors_per_frame": 920.4074074074074,
+        "inference_paths": [
+          "stored_kv"
+        ],
+        "source_codec": "h264",
+        "source_size": [
+          640,
+          360
+        ],
+        "semantic_model": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+        "tensor_device": "cpu",
+        "model_frames": 54,
+        "mean_model_inference_ms": 9.825263093699943,
+        "p95_model_inference_ms": 12.106375012081116,
+        "mean_processing_ms_excluding_decode": 27.395320274755015,
+        "p95_processing_ms_excluding_decode": 30.99191698129289,
+        "mean_end_to_end_frame_ms": 27.515257775020373,
+        "p95_end_to_end_frame_ms": 31.10537599422969,
+        "peak_actual_tensor_payload_bytes": 146895,
+        "final_tensor_bytes_written": 7543390,
+        "final_tensor_bytes_read": 13355457,
+        "mean_kv_consumed_pages": 7,
+        "compared_frames": 54,
+        "baseline_mean_inference_ms": 8.186378129283655,
+        "top1_agreement_rate": 1,
+        "mean_abs_logit_error": 0.00012357601122790516,
+        "kv_reuse_frames": 54,
+        "kv_pages_reused": 294,
+        "kv_pages_recomputed": 84,
+        "kv_tokens_reused": 8232,
+        "peak_reuse_validation_input_bytes": 150528,
+        "limitations": [
+          "ViT-Tiny is an image classifier, not a vision-language model.",
+          "Only the final ViT attention block consumes tiered K/V; optional cross-frame reuse requires exact block-input equality, and earlier blocks still execute.",
+          "End-to-end frame time includes decoder wait and Python overhead but excludes model loading; baseline and stored-K/V paths are not a controlled speedup study.",
+          "Top-1 agreement is not downstream task quality and patent novelty is not established by these measurements."
+        ]
+      }
+    }
+  ],
+  "decisions_identical": true,
+  "median_end_to_end_ms": {
+    "oracle": 56.43070141000121,
+    "indexed": 35.82911179573448
+  },
+  "observed_pipeline_ratio": 1.5749958227186474,
+  "interpretation": "Generated sample, CPU software only, paired final-code paths; includes baseline comparison, excludes model loading and dashboard. Not a standard-model, VLM, GPU, or production speedup claim."
+}
