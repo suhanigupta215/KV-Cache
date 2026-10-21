@@ -1,0 +1,1662 @@
+{
+  "config": {
+    "events": {
+      "adversarial_delay_jitter": 2.0,
+      "commit_delay": 0.3,
+      "correction_delay": 0.2,
+      "decode_delay": 1.0,
+      "mkad_delay": 0.2,
+      "mtre_delay": 0.5,
+      "scheduler_mode": "normal",
+      "seed": 20260922,
+      "semantic_delay": 1.5
+    },
+    "fallback": {
+      "low_confidence_mode": "unknown_state",
+      "missing_metadata_mode": "full_t0",
+      "queue_overflow_mode": "conservative_freeze",
+      "state_freeze_on_fault": true
+    },
+    "kmc": {
+      "allocation_failure_mode": "fallback_t2",
+      "coalescing_enabled": true,
+      "critical_queue_depth": 128,
+      "emergency_pool_pages": 8,
+      "enable_t3": false,
+      "enforce_generation_checks": false,
+      "generation_checks_enabled": true,
+      "max_queue_depth": 256,
+      "reconstruction_bytes_ratio": 0.25,
+      "reconstruction_latency": 3.0,
+      "tier_levels": 3
+    },
+    "mode": "full",
+    "model": {
+      "bytes_per_element": 2.0,
+      "crop": [
+        0,
+        0,
+        -1,
+        -1
+      ],
+      "head_dim": 128,
+      "input_size": 224,
+      "kv_heads": 16,
+      "layers": 24,
+      "page_tokens": 32,
+      "patch_size": 14,
+      "source_size": [
+        1920,
+        1080
+      ]
+    },
+    "motion": {
+      "activity_weights": [
+        0.5,
+        0.25,
+        0.1,
+        0.15
+      ],
+      "confidence_threshold": 0.25,
+      "motion_max": 32.0,
+      "quantization_levels": 16,
+      "quantize_activity": false,
+      "residual_max": 255.0,
+      "score_mode": "full"
+    },
+    "mtre": {
+      "conservative_mixed_evidence": true,
+      "hierarchical": true,
+      "hierarchy_heterogeneity": 0.15,
+      "hierarchy_min_region": 2,
+      "spatial_index_tiles": 8,
+      "use_optimized_path": false
+    },
+    "name": "frozen-reference-v1",
+    "num_frames": 12,
+    "num_streams": 1,
+    "scene": {
+      "enabled": true,
+      "false_positive_budget": 0.15,
+      "frame_type_change_weight": 0.2,
+      "high_change_fraction": 0.6,
+      "prefetch_margin": 8,
+      "residual_jump": 0.3,
+      "threshold": 0.45
+    },
+    "srce": {
+      "aggregation": "max",
+      "conflict_threshold": 0.4,
+      "demote_persistence": 4,
+      "emergency_pool_only_promotions": true,
+      "enabled": true,
+      "high_semantic": 0.7,
+      "low_codec": 0.2,
+      "semantic_normalization": "max_abs"
+    },
+    "temporal": {
+      "high_threshold": 0.35,
+      "low_threshold": 0.2,
+      "persistence_frames": 4,
+      "stable_frames": 6,
+      "transition_hold_frames": 3
+    },
+    "unsafe_generation_checks": false,
+    "version": "1.0"
+  },
+  "runs": {
+    "baseline": {
+      "event_trace": [],
+      "frames": [],
+      "metrics": {
+        "baseline_bytes_total": 503316480,
+        "baseline_pages_total": 80,
+        "bytes_saved": 0,
+        "bytes_saved_pct": 0.0,
+        "conflict_rate": 0.0,
+        "conflicts": 0,
+        "demotion_bytes": 0,
+        "demotions": 0,
+        "descriptor_count_flat": 0,
+        "descriptor_count_hierarchical": 0,
+        "duplicates": 0,
+        "fallback_rate": 0.0,
+        "fallbacks": 0,
+        "frame_state_fraction": {},
+        "hot_pages_total": 80,
+        "kv_write_bytes": 503316480,
+        "low_codec_candidates": 0,
+        "mean_latency": 0.0,
+        "p95_latency": 0.0,
+        "pages_avoided": 0,
+        "pages_avoided_pct": 0.0,
+        "physical_bytes_total": 503316480,
+        "promotion_bytes": 0,
+        "promotions": 0,
+        "queue_peak_overall": 0,
+        "reconstruction_bytes": 0,
+        "resident_pages_total": 0,
+        "scene_confusion": {
+          "accuracy": 0.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0
+        },
+        "semantic_rescue_rate": 0.0,
+        "semantic_rescues": 0,
+        "stale_drop_rate": 0.0,
+        "stale_drops": 0,
+        "temporal_state_switches": 0,
+        "tier_switches": 0,
+        "total_descriptors": 0,
+        "total_frames": 10,
+        "total_traffic_bytes": 503316480
+      }
+    },
+    "codec_only": {
+      "event_trace": [
+        {
+          "generation": 0,
+          "payload": {
+            "descriptor": {
+              "activity": 0.11243872549019612,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 1,
+              "frame_index": 0,
+              "generation": 0,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 1,
+          "stream_id": 0,
+          "time": 0.2,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 1,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2164618510010911,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 2,
+              "frame_index": 1,
+              "generation": 1,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 2,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "descriptor": {
+              "activity": 0.1997561008539955,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 3,
+              "frame_index": 2,
+              "generation": 2,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 3,
+          "stream_id": 0,
+          "time": 0.6000000000000001,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 3,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 4,
+              "frame_index": 3,
+              "generation": 3,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 4,
+          "stream_id": 0,
+          "time": 0.8,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 4,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 5,
+              "frame_index": 4,
+              "generation": 4,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 5,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 5,
+          "payload": {
+            "descriptor": {
+              "activity": 0.26021348506996106,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 6,
+              "frame_index": 5,
+              "generation": 5,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 6,
+          "stream_id": 0,
+          "time": 1.2,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "descriptor": {
+              "activity": 0.19335980333806138,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 7,
+              "frame_index": 6,
+              "generation": 6,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 7,
+          "stream_id": 0,
+          "time": 1.4,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 7,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 8,
+              "frame_index": 7,
+              "generation": 7,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 8,
+          "stream_id": 0,
+          "time": 1.5999999999999999,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 8,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2189154134752396,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 9,
+              "frame_index": 8,
+              "generation": 8,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 9,
+          "stream_id": 0,
+          "time": 1.7999999999999998,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 9,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2639729644021952,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 10,
+              "frame_index": 9,
+              "generation": 9,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 10,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "MKAD_READY"
+        }
+      ],
+      "frames": [
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 0,
+          "generation": 0,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 8,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 0,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 1,
+          "generation": 1,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 8,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 2,
+          "generation": 2,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 8,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 16,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": true,
+          "frame_index": 3,
+          "generation": 3,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 24,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": true,
+          "frame_index": 4,
+          "generation": 4,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 24,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 5,
+          "generation": 5,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 32,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 6,
+          "generation": 6,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 8,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 40,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": true,
+          "frame_index": 7,
+          "generation": 7,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 48,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 8,
+          "generation": 8,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 56,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 0,
+          "fallback": false,
+          "frame_index": 9,
+          "generation": 9,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 56,
+          "transition_predicted": false
+        }
+      ],
+      "metrics": {
+        "baseline_bytes_total": 503316480,
+        "baseline_pages_total": 80,
+        "bytes_saved": 213909504,
+        "bytes_saved_pct": 42.5,
+        "conflict_rate": 0.0,
+        "conflicts": 0,
+        "demotion_bytes": 0,
+        "demotions": 0,
+        "descriptor_count_flat": 8,
+        "descriptor_count_hierarchical": 1,
+        "duplicates": 3,
+        "fallback_rate": 0.0,
+        "fallbacks": 0,
+        "frame_state_fraction": {
+          "ACTIVE": 0.1,
+          "STABLE": 0.6,
+          "UNKNOWN": 0.3
+        },
+        "hot_pages_total": 24,
+        "kv_write_bytes": 503316480,
+        "low_codec_candidates": 0,
+        "mean_latency": 2.0,
+        "p95_latency": 2.0,
+        "pages_avoided": 56,
+        "pages_avoided_pct": 70.0,
+        "physical_bytes_total": 289406976,
+        "promotion_bytes": 0,
+        "promotions": 0,
+        "queue_peak_overall": 1,
+        "reconstruction_bytes": 0,
+        "resident_pages_total": 80,
+        "scene_confusion": {
+          "accuracy": 1.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0
+        },
+        "semantic_rescue_rate": 0.0,
+        "semantic_rescues": 0,
+        "stale_drop_rate": 0.0,
+        "stale_drops": 0,
+        "temporal_state_switches": 56,
+        "tier_switches": 56,
+        "total_descriptors": 13,
+        "total_frames": 10,
+        "total_traffic_bytes": 503316480
+      }
+    },
+    "full": {
+      "event_trace": [
+        {
+          "generation": 0,
+          "payload": {
+            "descriptor": {
+              "activity": 0.11243872549019612,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 1,
+              "frame_index": 0,
+              "generation": 0,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 1,
+          "stream_id": 0,
+          "time": 0.2,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019611,
+              "cause": "semantic_rescue",
+              "conflict": 0.8851108742050785,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 0,
+              "semantic": 0.9975495996952746,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 2,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019612,
+              "cause": "semantic_rescue",
+              "conflict": 0.8875612745098038,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 1,
+              "semantic": 1.0,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 3,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019612,
+              "cause": "semantic_rescue",
+              "conflict": 0.8817846089506332,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 2,
+              "semantic": 0.9942233344408293,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 4,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019611,
+              "cause": "semantic_rescue",
+              "conflict": 0.8857974725708191,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 3,
+              "semantic": 0.9982361980610152,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 5,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019612,
+              "cause": "semantic_rescue",
+              "conflict": 0.8861435835699087,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 4,
+              "semantic": 0.9985823090601048,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 6,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019612,
+              "cause": "semantic_rescue",
+              "conflict": 0.8862859703795252,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 5,
+              "semantic": 0.9987246958697213,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 7,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019612,
+              "cause": "semantic_rescue",
+              "conflict": 0.8805659788363731,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 6,
+              "semantic": 0.9930047043265692,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 8,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 0,
+          "payload": {
+            "action": {
+              "activity": 0.11243872549019614,
+              "cause": "semantic_rescue",
+              "conflict": 0.8792491263681833,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 7,
+              "semantic": 0.9916878518583795,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 9,
+          "stream_id": 0,
+          "time": 0.4,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 1,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2164618510010911,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 2,
+              "frame_index": 1,
+              "generation": 1,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 10,
+          "stream_id": 0,
+          "time": 0.6000000000000001,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "descriptor": {
+              "activity": 0.1997561008539955,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 3,
+              "frame_index": 2,
+              "generation": 2,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 11,
+          "stream_id": 0,
+          "time": 0.8,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.19975610085399548,
+              "cause": "semantic_rescue",
+              "conflict": 0.799565095767033,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 0,
+              "semantic": 0.9993211966210285,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 12,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.1997561008539955,
+              "cause": "semantic_rescue",
+              "conflict": 0.795392573988358,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 1,
+              "semantic": 0.9951486748423536,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 13,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.1997561008539955,
+              "cause": "semantic_rescue",
+              "conflict": 0.7953019217622395,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 2,
+              "semantic": 0.995058022616235,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 14,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.1997561008539955,
+              "cause": "semantic_rescue",
+              "conflict": 0.798858794359244,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 3,
+              "semantic": 0.9986148952132395,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 15,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.19975610085399548,
+              "cause": "semantic_rescue",
+              "conflict": 0.7995886533305647,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 4,
+              "semantic": 0.9993447541845603,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 16,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.1997561008539955,
+              "cause": "semantic_rescue",
+              "conflict": 0.7975823343392469,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 5,
+              "semantic": 0.9973384351932424,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 17,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.1997561008539955,
+              "cause": "semantic_rescue",
+              "conflict": 0.8002438991460045,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 6,
+              "semantic": 1.0,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 18,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 2,
+          "payload": {
+            "action": {
+              "activity": 0.19975610085399553,
+              "cause": "semantic_rescue",
+              "conflict": 0.7979165032304613,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 7,
+              "semantic": 0.9976726040844568,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 19,
+          "stream_id": 0,
+          "time": 1.0,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 3,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 4,
+              "frame_index": 3,
+              "generation": 3,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 20,
+          "stream_id": 0,
+          "time": 1.2,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 4,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 5,
+              "frame_index": 4,
+              "generation": 4,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 21,
+          "stream_id": 0,
+          "time": 1.4,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 5,
+          "payload": {
+            "descriptor": {
+              "activity": 0.26021348506996106,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 6,
+              "frame_index": 5,
+              "generation": 5,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 22,
+          "stream_id": 0,
+          "time": 1.5999999999999999,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "descriptor": {
+              "activity": 0.19335980333806138,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 7,
+              "frame_index": 6,
+              "generation": 6,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T2",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 23,
+          "stream_id": 0,
+          "time": 1.7999999999999998,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.19335980333806135,
+              "cause": "semantic_rescue",
+              "conflict": 0.8046780782313255,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 0,
+              "semantic": 0.9980378815693869,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 24,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.1933598033380614,
+              "cause": "semantic_rescue",
+              "conflict": 0.8041477295672261,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 1,
+              "semantic": 0.9975075329052876,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 25,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.19335980333806135,
+              "cause": "semantic_rescue",
+              "conflict": 0.8003886032528263,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 2,
+              "semantic": 0.9937484065908877,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 26,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.19335980333806138,
+              "cause": "semantic_rescue",
+              "conflict": 0.8065899520127521,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 3,
+              "semantic": 0.9999497553508134,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 27,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.1933598033380614,
+              "cause": "semantic_rescue",
+              "conflict": 0.8066401966619385,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 4,
+              "semantic": 1.0,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 28,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.19335980333806135,
+              "cause": "semantic_rescue",
+              "conflict": 0.7961479407135821,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 5,
+              "semantic": 0.9895077440516434,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 29,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.19335980333806135,
+              "cause": "semantic_rescue",
+              "conflict": 0.7994667656295622,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 6,
+              "semantic": 0.9928265689676236,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 30,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 6,
+          "payload": {
+            "action": {
+              "activity": 0.1933598033380614,
+              "cause": "semantic_rescue",
+              "conflict": 0.8051702615810208,
+              "old_tier": "T2",
+              "operation": "PROMOTE",
+              "page_id": 7,
+              "semantic": 0.9985300649190822,
+              "tier": "T0"
+            }
+          },
+          "priority": 2,
+          "seq": 31,
+          "stream_id": 0,
+          "time": 1.9999999999999998,
+          "type": "SEMANTIC_UPDATE"
+        },
+        {
+          "generation": 7,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2,
+              "cause": "codec",
+              "confidence": 0.0,
+              "descriptor_id": 8,
+              "frame_index": 7,
+              "generation": 7,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T0",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 32,
+          "stream_id": 0,
+          "time": 2.1999999999999997,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 8,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2189154134752396,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 9,
+              "frame_index": 8,
+              "generation": 8,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 33,
+          "stream_id": 0,
+          "time": 2.4,
+          "type": "MKAD_READY"
+        },
+        {
+          "generation": 9,
+          "payload": {
+            "descriptor": {
+              "activity": 0.2639729644021952,
+              "cause": "codec",
+              "confidence": 1.0,
+              "descriptor_id": 10,
+              "frame_index": 9,
+              "generation": 9,
+              "operation": "ALLOCATE",
+              "page_count": 8,
+              "page_start": 0,
+              "prefetch": false,
+              "stream_id": 0,
+              "target_tier": "T1",
+              "valid": true
+            }
+          },
+          "priority": 1,
+          "seq": 34,
+          "stream_id": 0,
+          "time": 2.6,
+          "type": "MKAD_READY"
+        }
+      ],
+      "frames": [
+        {
+          "baseline_pages": 8,
+          "conflicts": 8,
+          "fallback": false,
+          "frame_index": 0,
+          "generation": 0,
+          "mtr_pages_t0": 1,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 7,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 7,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 1,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 0,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 16,
+          "fallback": false,
+          "frame_index": 1,
+          "generation": 1,
+          "mtr_pages_t0": 1,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 7,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 7,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 0,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 24,
+          "fallback": false,
+          "frame_index": 2,
+          "generation": 2,
+          "mtr_pages_t0": 1,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 7,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 7,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 1,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 0,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 32,
+          "fallback": true,
+          "frame_index": 3,
+          "generation": 3,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 7,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 40,
+          "fallback": true,
+          "frame_index": 4,
+          "generation": 4,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 7,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 48,
+          "fallback": false,
+          "frame_index": 5,
+          "generation": 5,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 15,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 56,
+          "fallback": false,
+          "frame_index": 6,
+          "generation": 6,
+          "mtr_pages_t0": 1,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 7,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 7,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 1,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 23,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 64,
+          "fallback": true,
+          "frame_index": 7,
+          "generation": 7,
+          "mtr_pages_t0": 8,
+          "mtr_pages_t1": 0,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 0,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 30,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 72,
+          "fallback": false,
+          "frame_index": 8,
+          "generation": 8,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 38,
+          "transition_predicted": false
+        },
+        {
+          "baseline_pages": 8,
+          "conflicts": 80,
+          "fallback": false,
+          "frame_index": 9,
+          "generation": 9,
+          "mtr_pages_t0": 0,
+          "mtr_pages_t1": 8,
+          "mtr_pages_t2": 0,
+          "mtr_pages_t3": 0,
+          "pages_avoided": 8,
+          "queue_peak": 1,
+          "scene_cut_truth": false,
+          "semantic_rescues": 0,
+          "stale_drops": 0,
+          "stream_id": 0,
+          "tier_switches": 38,
+          "transition_predicted": false
+        }
+      ],
+      "metrics": {
+        "baseline_bytes_total": 503316480,
+        "baseline_pages_total": 80,
+        "bytes_saved": 207618048,
+        "bytes_saved_pct": 41.25,
+        "conflict_rate": 1.0,
+        "conflicts": 80,
+        "demotion_bytes": 0,
+        "demotions": 0,
+        "descriptor_count_flat": 8,
+        "descriptor_count_hierarchical": 1,
+        "duplicates": 25,
+        "fallback_rate": 0.0,
+        "fallbacks": 0,
+        "frame_state_fraction": {
+          "ACTIVE": 0.1,
+          "STABLE": 0.6,
+          "UNKNOWN": 0.3
+        },
+        "hot_pages_total": 28,
+        "kv_write_bytes": 452984832,
+        "low_codec_candidates": 48,
+        "mean_latency": 2.0,
+        "p95_latency": 2.0,
+        "pages_avoided": 52,
+        "pages_avoided_pct": 65.0,
+        "physical_bytes_total": 295698432,
+        "promotion_bytes": 18874368,
+        "promotions": 3,
+        "queue_peak_overall": 1,
+        "reconstruction_bytes": 0,
+        "resident_pages_total": 80,
+        "scene_confusion": {
+          "accuracy": 1.0,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": 0.0
+        },
+        "semantic_rescue_rate": 0.5,
+        "semantic_rescues": 24,
+        "stale_drop_rate": 0.0,
+        "stale_drops": 0,
+        "temporal_state_switches": 56,
+        "tier_switches": 38,
+        "total_descriptors": 13,
+        "total_frames": 10,
+        "total_traffic_bytes": 471859200
+      }
+    }
+  },
+  "scenario": {
+    "iframe_frames": [
+      0
+    ],
+    "missing_metadata_frames": [
+      3,
+      4,
+      7
+    ],
+    "name": "T08_missing_metadata",
+    "num_frames": 10,
+    "regions": [
+      {
+        "block_size": [
+          16,
+          16
+        ],
+        "confidence": 1.0,
+        "motion_amplitude": 10.0,
+        "motion_profile": "moving",
+        "name": "mixed",
+        "rect": [
+          0.0,
+          0.0,
+          1280.0,
+          720.0
+        ],
+        "residual_level": 35.0,
+        "semantic_importance": 0.5,
+        "semantic_spike_frame": null,
+        "valid": true
+      }
+    ],
+    "scene_cut_frames": [],
+    "seed": 20260922,
+    "source_size": [
+      1280,
+      720
+    ]
+  }
+}
