@@ -27,7 +27,7 @@ Page tiles show committed tiers after semantic correction, if enabled. Their too
 .venv/bin/python -m mtr_kv dashboard 'rtsp://camera/encoded-stream'
 ```
 
-The source is chosen on the command line. The server reads locally; it does not upload the video. Use a codec/decoder that exports motion-vector side data. Unsupported metadata takes the explicitly shown conservative fallback path. Android 12+ USB camera input is available through `python -m mtr_kv phone`; see [phone setup](PHONE_CAMERA.md). Generic USB webcam capture and browser file upload are future adapters. Applications with their own decoder can continuously write frame and semantic records into `python -m mtr_kv live --width WIDTH --height HEIGHT` on stdin; stdout flushes a corresponding decision per record.
+The source is chosen on the command line. The server reads locally; it does not upload the video. Use a codec/decoder that exports motion-vector side data. Unsupported metadata takes the explicitly shown conservative fallback path. Android 12+ USB camera input is available through `python -m mtr_kv phone`; see [phone setup](PHONE_CAMERA.md). For a local video, use Analyze your own video in the dashboard, select a file from your gallery or computer, and click Analyze video. See VIDEO_PICKER.md for supported input and limits. Generic USB webcam capture remains a future adapter. Applications with their own decoder can continuously write frame and semantic records into `python -m mtr_kv live --width WIDTH --height HEIGHT` on stdin; stdout flushes a corresponding decision per record.
 
 ## Enable the measured model path
 
